@@ -1,0 +1,747 @@
+[
+  {
+    "id": "43941155.4d2f9",
+    "type": "tab",
+    "label": "フロー 1",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "b9ede68d.7ceb38",
+    "type": "ui_group",
+    "z": "",
+    "name": "Reaction App",
+    "tab": "5d87b5f9.dcdb3c",
+    "order": 1,
+    "disp": false,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "5d87b5f9.dcdb3c",
+    "type": "ui_tab",
+    "z": "",
+    "name": "ホーム",
+    "icon": "dashboard",
+    "order": 2,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "1e3f7e77.0b1282",
+    "type": "ui_base",
+    "theme": {
+      "name": "theme-dark",
+      "darkTheme": {
+        "reset": false,
+        "edited": true,
+        "default": "#097479",
+        "baseFont": "Arial,Arial,Helvetica,sans-serif",
+        "baseColor": "#097479"
+      },
+      "lightTheme": {
+        "reset": false,
+        "edited": true,
+        "default": "#0094CE",
+        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+        "baseColor": "#0094CE"
+      },
+      "themeState": {
+        "base-font": {
+          "value": "Arial,Arial,Helvetica,sans-serif"
+        },
+        "base-color": {
+          "value": "#097479",
+          "edited": false,
+          "default": "#097479"
+        },
+        "group-textColor": {
+          "value": "#0eb8c0",
+          "edited": false
+        },
+        "widget-textColor": {
+          "value": "#eeeeee",
+          "edited": false
+        },
+        "group-borderColor": {
+          "value": "#555555",
+          "edited": false
+        },
+        "widget-borderColor": {
+          "value": "#333333",
+          "edited": false
+        },
+        "page-backgroundColor": {
+          "value": "#111111",
+          "edited": false
+        },
+        "group-backgroundColor": {
+          "value": "#333333",
+          "edited": false
+        },
+        "widget-backgroundColor": {
+          "value": "#097479",
+          "edited": false
+        },
+        "page-sidebar-backgroundColor": {
+          "value": "#000000",
+          "edited": false
+        },
+        "page-titlebar-backgroundColor": {
+          "value": "#097479",
+          "edited": false
+        }
+      },
+      "customTheme": {
+        "name": "Untitled Theme 1",
+        "default": "#4B7930",
+        "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+        "baseColor": "#4B7930"
+      },
+      "angularTheme": {
+        "primary": "indigo",
+        "accents": "blue",
+        "warn": "red",
+        "background": "grey"
+      }
+    },
+    "site": {
+      "name": "Reaction App",
+      "sizes": {
+        "cx": 6,
+        "cy": 6,
+        "gx": 6,
+        "gy": 6,
+        "px": 0,
+        "py": 0,
+        "sx": 48,
+        "sy": 48
+      },
+      "lockMenu": "false",
+      "allowSwipe": "false",
+      "dateFormat": "YYYY/MM/DD",
+      "hideToolbar": "false",
+      "allowTempTheme": "true"
+    }
+  },
+  {
+    "id": "2bd8dfa0.3a24b",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "全体の反応カウント = 0",
+    "rules": [
+      {
+        "p": "countAllReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 510,
+    "y": 80,
+    "wires": [
+      [
+        "92f4ac42.885db"
+      ]
+    ]
+  },
+  {
+    "id": "94b7d5c6.3c5128",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "定期的な反応カウント = 0",
+    "rules": [
+      {
+        "p": "countConstantReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 520,
+    "y": 160,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "26b32734.9232c8",
+    "type": "comment",
+    "z": "43941155.4d2f9",
+    "name": "カウントリセット",
+    "info": "",
+    "x": 130,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "b3418602.d71a68",
+    "type": "inject",
+    "z": "43941155.4d2f9",
+    "name": "リセット",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 120,
+    "y": 120,
+    "wires": [
+      [
+        "173cbd06.857103"
+      ]
+    ]
+  },
+  {
+    "id": "173cbd06.857103",
+    "type": "function",
+    "z": "43941155.4d2f9",
+    "name": "<HUB>",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 280,
+    "y": 120,
+    "wires": [
+      [
+        "2bd8dfa0.3a24b",
+        "94b7d5c6.3c5128"
+      ]
+    ]
+  },
+  {
+    "id": "e8b24a99.b594f8",
+    "type": "comment",
+    "z": "43941155.4d2f9",
+    "name": "ユーザーいいねボタン",
+    "info": "",
+    "x": 140,
+    "y": 260,
+    "wires": []
+  },
+  {
+    "id": "e9972c2c.49b16",
+    "type": "comment",
+    "z": "43941155.4d2f9",
+    "name": "定期的な反応カウント",
+    "info": "",
+    "x": 140,
+    "y": 400,
+    "wires": []
+  },
+  {
+    "id": "9677c32f.0ed2a",
+    "type": "ui_button",
+    "z": "43941155.4d2f9",
+    "name": "",
+    "group": "b9ede68d.7ceb38",
+    "order": 3,
+    "width": "6",
+    "height": "3",
+    "passthru": false,
+    "label": "あるある！",
+    "tooltip": "",
+    "color": "",
+    "bgcolor": "",
+    "icon": "thumb_up",
+    "payload": "",
+    "payloadType": "str",
+    "topic": "",
+    "x": 110,
+    "y": 300,
+    "wires": [
+      [
+        "a92eb288.bf482"
+      ]
+    ]
+  },
+  {
+    "id": "758b9c15.610de4",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "全体の反応カウント 加算",
+    "rules": [
+      {
+        "p": "countAllReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "$number( $flowContext(\"countAllReaction\") ) + 1",
+        "tot": "jsonata"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 510,
+    "y": 300,
+    "wires": [
+      [
+        "aa6dc27b.aec53"
+      ]
+    ]
+  },
+  {
+    "id": "96cc82ea.ca8be",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "定期的な反応カウント 加算",
+    "rules": [
+      {
+        "p": "countConstantReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "$flowContext(\"countConstantReaction\") + 1\t",
+        "tot": "jsonata"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 520,
+    "y": 340,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "1fba41fa.daa2be",
+    "type": "inject",
+    "z": "43941155.4d2f9",
+    "name": "定期実行",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "5",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 150,
+    "y": 440,
+    "wires": [
+      [
+        "604d0cd3.789864",
+        "aa6dc27b.aec53"
+      ]
+    ]
+  },
+  {
+    "id": "fead66ef.b91518",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "定期的な反応カウント リセット",
+    "rules": [
+      {
+        "p": "countConstantReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 1050,
+    "y": 440,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "f78c1c2d.3f0af",
+    "type": "ui_chart",
+    "z": "43941155.4d2f9",
+    "name": "いいね！カウント グラフ",
+    "group": "b9ede68d.7ceb38",
+    "order": 2,
+    "width": 0,
+    "height": 0,
+    "label": "5秒ごとの経過",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "",
+    "dot": false,
+    "ymin": "",
+    "ymax": "",
+    "removeOlder": 1,
+    "removeOlderPoints": "100",
+    "removeOlderUnit": "3600",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#1f77b4",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "useOldStyle": false,
+    "outputs": 1,
+    "x": 770,
+    "y": 440,
+    "wires": [
+      [
+        "fead66ef.b91518"
+      ]
+    ]
+  },
+  {
+    "id": "604d0cd3.789864",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "定期的な反応カウント -> msg.payload",
+    "rules": [
+      {
+        "p": "payload",
+        "t": "set",
+        "pt": "msg",
+        "to": "countConstantReaction",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 410,
+    "y": 440,
+    "wires": [
+      [
+        "f78c1c2d.3f0af"
+      ]
+    ]
+  },
+  {
+    "id": "aa6dc27b.aec53",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "全体の反応カウント -> msg.payload",
+    "rules": [
+      {
+        "p": "payload",
+        "t": "set",
+        "pt": "msg",
+        "to": "countAllReaction",
+        "tot": "flow"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 850,
+    "y": 300,
+    "wires": [
+      [
+        "ad595ccf.46955",
+        "60e02ae6.c8e7b4"
+      ]
+    ]
+  },
+  {
+    "id": "ad595ccf.46955",
+    "type": "ui_template",
+    "z": "43941155.4d2f9",
+    "group": "b9ede68d.7ceb38",
+    "name": "あるあるカウント",
+    "order": 1,
+    "width": "6",
+    "height": "3",
+    "format": "<div\n    class=\"md-display-1\"\n    layout=\"row\"\n    layout-align=\"center center\">あるあるカウント</div>\n<div\n    class=\"md-display-3\"\n    layout=\"row\"\n    layout-align=\"center center\"\n    ng-bind-html=\"msg.payload\"></div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "x": 1130,
+    "y": 300,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "4bbfb9c.7d1d848",
+    "type": "inject",
+    "z": "43941155.4d2f9",
+    "name": "グラフリセット",
+    "topic": "",
+    "payload": "[]",
+    "payloadType": "json",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 540,
+    "y": 500,
+    "wires": [
+      [
+        "f78c1c2d.3f0af"
+      ]
+    ]
+  },
+  {
+    "id": "a92eb288.bf482",
+    "type": "function",
+    "z": "43941155.4d2f9",
+    "name": "<HUB>",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 320,
+    "y": 300,
+    "wires": [
+      [
+        "758b9c15.610de4",
+        "96cc82ea.ca8be"
+      ]
+    ]
+  },
+  {
+    "id": "cc61a2c4.1d18c",
+    "type": "inject",
+    "z": "43941155.4d2f9",
+    "name": "テスト用いいね！",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "x": 150,
+    "y": 340,
+    "wires": [
+      [
+        "a92eb288.bf482"
+      ]
+    ]
+  },
+  {
+    "id": "60e02ae6.c8e7b4",
+    "type": "debug",
+    "z": "43941155.4d2f9",
+    "name": "",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "x": 1110,
+    "y": 240,
+    "wires": []
+  },
+  {
+    "id": "b74dbc1f.00811",
+    "type": "inject",
+    "z": "43941155.4d2f9",
+    "name": "起動時動作",
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "repeat": "",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "x": 130,
+    "y": 640,
+    "wires": [
+      [
+        "2a71aacb.563d46"
+      ]
+    ]
+  },
+  {
+    "id": "2a71aacb.563d46",
+    "type": "function",
+    "z": "43941155.4d2f9",
+    "name": "<HUB>",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "noerr": 0,
+    "x": 300,
+    "y": 640,
+    "wires": [
+      [
+        "fbd1a0af.2d854",
+        "76bd94ad.3d857c"
+      ]
+    ]
+  },
+  {
+    "id": "a2028cc0.e3a13",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "全体の反応カウント = 0",
+    "rules": [
+      {
+        "p": "countAllReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 850,
+    "y": 600,
+    "wires": [
+      [
+        "2a9de65c.7dcf5a"
+      ]
+    ]
+  },
+  {
+    "id": "cd65ee1c.c1fb1",
+    "type": "change",
+    "z": "43941155.4d2f9",
+    "name": "定期的な反応カウント = 0",
+    "rules": [
+      {
+        "p": "countConstantReaction",
+        "t": "set",
+        "pt": "flow",
+        "to": "0",
+        "tot": "num"
+      }
+    ],
+    "action": "",
+    "property": "",
+    "from": "",
+    "to": "",
+    "reg": false,
+    "x": 860,
+    "y": 660,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "fbd1a0af.2d854",
+    "type": "switch",
+    "z": "43941155.4d2f9",
+    "name": "countAllReaction check",
+    "property": "countAllReaction",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "null"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 550,
+    "y": 580,
+    "wires": [
+      [
+        "a2028cc0.e3a13"
+      ]
+    ]
+  },
+  {
+    "id": "76bd94ad.3d857c",
+    "type": "switch",
+    "z": "43941155.4d2f9",
+    "name": "countConstantReaction check",
+    "property": "countConstantReaction",
+    "propertyType": "flow",
+    "rules": [
+      {
+        "t": "null"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 1,
+    "x": 570,
+    "y": 660,
+    "wires": [
+      [
+        "cd65ee1c.c1fb1"
+      ]
+    ]
+  },
+  {
+    "id": "e9134beb.5169b8",
+    "type": "comment",
+    "z": "43941155.4d2f9",
+    "name": "初期値設定",
+    "info": "",
+    "x": 100,
+    "y": 580,
+    "wires": []
+  },
+  {
+    "id": "26442391.0b182c",
+    "type": "link in",
+    "z": "43941155.4d2f9",
+    "name": "",
+    "links": [
+      "92f4ac42.885db",
+      "2a9de65c.7dcf5a"
+    ],
+    "x": 655,
+    "y": 240,
+    "wires": [
+      [
+        "aa6dc27b.aec53"
+      ]
+    ]
+  },
+  {
+    "id": "92f4ac42.885db",
+    "type": "link out",
+    "z": "43941155.4d2f9",
+    "name": "",
+    "links": [
+      "26442391.0b182c"
+    ],
+    "x": 655,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "2a9de65c.7dcf5a",
+    "type": "link out",
+    "z": "43941155.4d2f9",
+    "name": "",
+    "links": [
+      "26442391.0b182c"
+    ],
+    "x": 1015,
+    "y": 600,
+    "wires": []
+  }
+]
