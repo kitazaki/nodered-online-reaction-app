@@ -1,2 +1,2 @@
 tasks:
-  - command: "npm i -g node-red && cp flow.json ~/.node-red && node-red"
+  - command: "sudo apt update"
