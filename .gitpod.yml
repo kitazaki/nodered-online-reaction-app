@@ -1,2 +1,2 @@
 tasks:
-  - command: "sudo apt update"
+  - command: "cd && sudo install -g --unsafe-perm node-red && ln -s /workspace/nodered-online-reaction-app/flow.json ./.node-red/ && node-red"
