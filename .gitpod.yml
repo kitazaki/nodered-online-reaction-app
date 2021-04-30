@@ -1,6 +1,7 @@
 # Command to start on workspace startup (optional)
 tasks:
-  - command: "cd && npm install -g npm && npm install -g --unsafe-perm node-red node-red-dashboard && mkdir .node-red && ln -s /workspace/nodered-online-reaction-app/flow.json ./.node-red/ && node-red flow.json"
+  - init: "npm install -g npm"
+  - command: "cd && npm install -g --unsafe-perm node-red node-red-dashboard && mkdir .node-red && ln -s /workspace/nodered-online-reaction-app/flow.json ./.node-red/ && node-red flow.json"
     name: Node-RED
   - openMode: split-right
     command: "cd && npm install -g qrcode-terminal && echo $GITPOD_WORKSPACE_URL | awk -F// '{print $1 \"//1880-\" $2 \"/ui\"}' | qrcode-terminal"
