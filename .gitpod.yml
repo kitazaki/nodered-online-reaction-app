@@ -1,0 +1,5 @@
+tasks:
+  - command: |
+    npm init -y
+    npm i -g node-red
+  
