@@ -1,5 +1,2 @@
 tasks:
-  - command: |
-    npm init -y
-    npm i -g node-red
-  
+  - command: "npm i -g node-red && cp flow.json ~/.node-red && node-red"
