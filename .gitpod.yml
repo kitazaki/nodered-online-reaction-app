@@ -1,2 +1,2 @@
 tasks:
-  - command: "cd && sudo install -g --unsafe-perm node-red && ln -s /workspace/nodered-online-reaction-app/flow.json ./.node-red/ && node-red"
+  - command: "cd && sudo install -g --unsafe-perm node-red node-red-dashboard && ln -s /workspace/nodered-online-reaction-app/flow.json ./.node-red/ && node-red flow.json"
